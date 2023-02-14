@@ -1,0 +1,54 @@
+{
+  "name": "ccnu-lab",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "cd .. && husky install client/.husky",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "prettier:fix": "prettier --write",
+    "typeCheck": "tsc --skipLibCheck"
+  },
+  "dependencies": {
+    "ahooks": "^3.7.4",
+    "antd": "^5.1.2",
+    "lodash-es": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.8.1",
+    "react-router-dom": "^6.8.1",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
+    "typescript": "*",
+    "vite": "^4.0.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "bash -c 'yarn typeCheck'",
+      "yarn prettier:fix",
+      "yarn lint:fix",
+      "yarn lint"
+    ]
+  }
+}
