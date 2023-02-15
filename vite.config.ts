@@ -19,14 +19,6 @@ export default ({mode}) => {
         },
       },
     },
-    server: {
-      proxy: {
-        '/api':
-          process.env.DEV_ENV_MODE === 'dev'
-            ? 'http://localhost:5000/'
-            : 'http://demobox-xy.siaoya.com/',
-      },
-    },
     resolve: {
       alias: {'@': path.resolve(__dirname, 'src')},
     },

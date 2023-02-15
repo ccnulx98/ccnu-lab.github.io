@@ -1,20 +1,14 @@
 import {LoadingOutlined} from '@ant-design/icons';
-import {Layout, Menu, MenuProps, Spin, SpinProps} from 'antd';
+import {Layout, Menu, Spin, SpinProps} from 'antd';
 import React, {Suspense} from 'react';
-import {Outlet} from 'react-router-dom';
+import {Outlet, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {AppLogo} from '@/component/UI/AppLogo';
+
+import WebRoutes, {ProRoutes} from './WebRoutes';
 const {Header, Content, Footer} = Layout;
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
-
-const items: MenuProps['items'] = [
-  {key: 'home', label: '主页'},
-  {key: 'introduction', label: '项目简介'},
-  {key: 'trend', label: '项目动态'},
-  {key: 'topic', label: '课题设置'},
-  {key: 'achievement', label: '成果展示'},
-];
 
 export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
   height: 100vh;
@@ -54,12 +48,23 @@ const WebHeader = styled.div`
 `;
 
 const WebLayout: React.FC = () => {
+  const WebChildren = WebRoutes.find((i) => i.path === '/')?.children as ProRoutes[];
+  const WebItems = WebChildren.map((i) => {
+    return {key: i.path as string, label: <Link to={i.path as string}>{i.name}</Link>};
+  });
   return (
     <Layout>
       <WebHeader>
         <HeaderContent>
           <AppLogo />
-          <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} items={items} />
+          <Menu
+            theme="light"
+            mode="horizontal"
+            selectedKeys={[
+              WebItems.find((i) => i.key !== '/' && location.pathname.includes(i.key))?.key || '/',
+            ]}
+            items={WebItems}
+          />
         </HeaderContent>
       </WebHeader>
       <Content>
@@ -67,7 +72,10 @@ const WebLayout: React.FC = () => {
           <Outlet />
         </Suspense>
       </Content>
-      <Footer style={{textAlign: 'center'}}>Copyright © 2015-2023 华中师范大学</Footer>
+      <Footer style={{textAlign: 'center'}}>
+        项目基础框架以及每个页面跳转已经做好,具体需要在具体的页面去实现, logo
+        目前随便放一个可随时替换
+      </Footer>
     </Layout>
   );
 };
