@@ -1,10 +1,10 @@
 import {LoadingOutlined} from '@ant-design/icons';
 import {Layout, Menu, Spin, SpinProps} from 'antd';
 import React, {Suspense} from 'react';
-import {Outlet, Link, RouteObject, useLocation} from 'react-router-dom';
+import {Outlet, Link, RouteObject, useLocation, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
-import {AppLogo} from '@/component/UI/AppLogo';
+import logo from '@/assets/images/logo.png';
 
 import WebRoutes, {pathDict, RoutePath} from './WebRoutes';
 const {Content, Footer, Header} = Layout;
@@ -18,12 +18,20 @@ export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
   justify-content: center;
   align-items: center;
 `;
+const WebHeader = styled.div`
+  box-shadow: 0px 1px 10px rgba(71, 90, 155, 0.02), 0px 4px 6px rgba(102, 120, 166, 0.04),
+    0px 2px 6px -1px rgba(102, 120, 166, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fcfcfc;
+`;
 
 const HeaderContent = styled(Header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent !important;
+  background: #fcfcfc !important;
   padding-inline: 0 !important;
   .ant-menu-horizontal > .ant-menu-item a {
     font-size: 16px;
@@ -34,7 +42,7 @@ const HeaderContent = styled(Header)`
   .ant-menu {
     display: flex;
     justify-content: center;
-    background: transparent;
+    background: #fcfcfc;
   }
 `;
 
@@ -65,22 +73,29 @@ const WebLayout: React.FC = () => {
       label: <Link to={i.path as string}>{pathDict[i.id as RoutePath]}</Link>,
     };
   });
+  const navigate = useNavigate();
 
   const loc = useLocation();
   return (
     <Layout style={{background: 'white'}}>
       <SectionLayout style={{background: '#eee'}}>
-        <HeaderContent>
-          <AppLogo />
-          <Menu
-            theme={'light'}
-            mode="horizontal"
-            selectedKeys={[
-              WebItems.find((i) => i.key !== '/' && loc.pathname.includes(i.key))?.key || '/',
-            ]}
-            items={WebItems}
-          />
-        </HeaderContent>
+        <WebHeader>
+          <HeaderContent>
+            <img
+              src={logo}
+              style={{width: '243.38px', height: '52px', cursor: 'pointer'}}
+              onClick={() => navigate('/')}
+            />
+            <Menu
+              theme={'light'}
+              mode="horizontal"
+              selectedKeys={[
+                WebItems.find((i) => i.key !== '/' && loc.pathname.includes(i.key))?.key || '/',
+              ]}
+              items={WebItems}
+            />
+          </HeaderContent>
+        </WebHeader>
       </SectionLayout>
       <SectionLayout style={{background: 'transparent'}}>
         <ContentContent>
