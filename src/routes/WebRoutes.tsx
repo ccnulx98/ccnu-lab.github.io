@@ -1,4 +1,4 @@
-import React, {lazy} from 'react';
+import {lazy} from 'react';
 import {RouteObject} from 'react-router-dom';
 
 const WebLayout = lazy(() => import('@/routes/WebLayout'));
@@ -8,6 +8,16 @@ const Introduction = lazy(() => import('@/pages/web/Introduction/Introduction'))
 const Topic = lazy(() => import('@/pages/web/Topic/Topic'));
 const Trend = lazy(() => import('@/pages/web/Trend/Trend'));
 
+export type RoutePath = 'home' | 'introduction' | 'dynamics' | 'subjects' | 'achievements';
+
+export const pathDict: Record<RoutePath, string> = {
+  home: '项目主页',
+  introduction: '项目介绍',
+  dynamics: '项目动态',
+  subjects: '课程设置',
+  achievements: '成果展示',
+};
+
 const WebRoutes: RouteObject[] = [
   {
     path: '/',
@@ -16,28 +26,28 @@ const WebRoutes: RouteObject[] = [
     children: [
       {
         index: true,
-        id: '主页',
-        // path: '/home',
+        id: 'home',
+        path: '/',
         element: <Home />,
       },
       {
-        id: '项目介绍',
+        id: 'introduction',
         path: '/introduction',
         element: <Introduction />,
       },
       {
-        id: '项目动态',
-        path: '/trend',
+        id: 'dynamics',
+        path: '/dynamics',
         element: <Trend />,
       },
       {
-        id: '课程设置',
-        path: '/topic',
+        id: 'subjects',
+        path: '/subjects',
         element: <Topic />,
       },
       {
-        id: '成果展示',
-        path: '/achievement',
+        id: 'achievements',
+        path: '/achievements',
         element: <Achievement />,
       },
     ],

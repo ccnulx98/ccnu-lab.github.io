@@ -1,31 +1,30 @@
 import {LoadingOutlined} from '@ant-design/icons';
 import {Layout, Menu, Spin, SpinProps} from 'antd';
 import React, {Suspense} from 'react';
-import {Outlet, Link, RouteObject} from 'react-router-dom';
+import {Outlet, Link, RouteObject, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {AppLogo} from '@/component/UI/AppLogo';
 
-import WebRoutes from './WebRoutes';
-const {Header, Content, Footer} = Layout;
+import WebRoutes, {pathDict, RoutePath} from './WebRoutes';
+const {Content, Footer, Header} = Layout;
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
 
+const SiteContentWidth = '1280px';
+
 export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
-  height: 100vh;
+  height: 99vh;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const HeaderContent = styled(Header)`
-  width: 1500px;
-  height: 70px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fcfcfc !important;
-  padding: 0;
+  background: transparent !important;
+  padding-inline: 0 !important;
   .ant-menu-horizontal > .ant-menu-item a {
     font-size: 16px;
   }
@@ -33,18 +32,29 @@ const HeaderContent = styled(Header)`
     font-weight: 600;
   }
   .ant-menu {
-    width: 1270px;
     display: flex;
     justify-content: center;
+    background: transparent;
   }
 `;
-const WebHeader = styled.div`
-  box-shadow: 0px 1px 10px rgba(71, 90, 155, 0.02), 0px 4px 6px rgba(102, 120, 166, 0.04),
-    0px 2px 6px -1px rgba(102, 120, 166, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #fcfcfc;
+
+const ContentContent = styled(Content)`
+  padding: 30px 0;
+`;
+
+const FooterContent = styled(Footer)`
+  text-align: center;
+  background: transparent !important;
+`;
+
+const SectionLayout = styled(Layout)`
+  width: 100%;
+  header,
+  footer,
+  main {
+    width: ${SiteContentWidth};
+    margin: 0 auto;
+  }
 `;
 
 const WebLayout: React.FC = () => {
@@ -52,33 +62,39 @@ const WebLayout: React.FC = () => {
   const WebItems = WebChildren.map((i) => {
     return {
       key: i.path as string,
-      label: <Link to={i.path as string}>{i.id}</Link>,
+      label: <Link to={i.path as string}>{pathDict[i.id as RoutePath]}</Link>,
     };
   });
+
+  const loc = useLocation();
   return (
-    <Layout>
-      <WebHeader>
+    <Layout style={{background: 'white'}}>
+      <SectionLayout style={{background: '#eee'}}>
         <HeaderContent>
           <AppLogo />
           <Menu
-            theme="light"
+            theme={'light'}
             mode="horizontal"
             selectedKeys={[
-              WebItems.find((i) => i.key !== '/' && location.pathname.includes(i.key))?.key || '/',
+              WebItems.find((i) => i.key !== '/' && loc.pathname.includes(i.key))?.key || '/',
             ]}
             items={WebItems}
           />
         </HeaderContent>
-      </WebHeader>
-      <Content>
-        <Suspense fallback={<LoadingWrap indicator={antIcon} delay={1000} />}>
-          <Outlet />
-        </Suspense>
-      </Content>
-      <Footer style={{textAlign: 'center'}}>
-        项目基础框架以及每个页面跳转已经做好,具体需要在具体的页面去实现, logo
-        目前随便放一个可随时替换
-      </Footer>
+      </SectionLayout>
+      <SectionLayout style={{background: 'transparent'}}>
+        <ContentContent>
+          <Suspense fallback={<LoadingWrap indicator={antIcon} delay={1000} />}>
+            <Outlet />
+          </Suspense>
+        </ContentContent>
+      </SectionLayout>
+      <SectionLayout style={{background: '#eee'}}>
+        <FooterContent>
+          项目基础框架以及每个页面跳转已经做好,具体需要在具体的页面去实现, logo,
+          目前随便放一个可随时替换
+        </FooterContent>
+      </SectionLayout>
     </Layout>
   );
 };
