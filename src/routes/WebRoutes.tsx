@@ -1,5 +1,5 @@
 import React, {lazy} from 'react';
-import {NonIndexRouteObject} from 'react-router-dom';
+import {RouteObject} from 'react-router-dom';
 
 const WebLayout = lazy(() => import('@/routes/WebLayout'));
 const Home = lazy(() => import('@/pages/web/Home/Home'));
@@ -8,39 +8,39 @@ const Introduction = lazy(() => import('@/pages/web/Introduction/Introduction'))
 const Topic = lazy(() => import('@/pages/web/Topic/Topic'));
 const Trend = lazy(() => import('@/pages/web/Trend/Trend'));
 
-export interface ProRoutes extends NonIndexRouteObject {
-  name: string;
+export type ProRoutes = {
+  id: string;
   children?: ProRoutes[];
-}
-
-const WebRoutes: ProRoutes[] = [
+} & RouteObject;
+const WebRoutes: RouteObject[] = [
   {
     path: '/',
-    name: 'layout',
+    id: 'layout',
     element: <WebLayout />,
     children: [
       {
-        name: '主页',
-        path: '/home',
+        index: true,
+        id: '主页',
+        // path: '/home',
         element: <Home />,
       },
       {
-        name: '项目介绍',
+        id: '项目介绍',
         path: '/introduction',
         element: <Introduction />,
       },
       {
-        name: '项目动态',
+        id: '项目动态',
         path: '/trend',
         element: <Trend />,
       },
       {
-        name: '课程设置',
+        id: '课程设置',
         path: '/topic',
         element: <Topic />,
       },
       {
-        name: '成果展示',
+        id: '成果展示',
         path: '/achievement',
         element: <Achievement />,
       },

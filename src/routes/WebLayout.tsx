@@ -1,12 +1,12 @@
 import {LoadingOutlined} from '@ant-design/icons';
 import {Layout, Menu, Spin, SpinProps} from 'antd';
 import React, {Suspense} from 'react';
-import {Outlet, Link} from 'react-router-dom';
+import {Outlet, Link, RouteObject} from 'react-router-dom';
 import styled from 'styled-components';
 
 import {AppLogo} from '@/component/UI/AppLogo';
 
-import WebRoutes, {ProRoutes} from './WebRoutes';
+import WebRoutes from './WebRoutes';
 const {Header, Content, Footer} = Layout;
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
 
@@ -48,9 +48,12 @@ const WebHeader = styled.div`
 `;
 
 const WebLayout: React.FC = () => {
-  const WebChildren = WebRoutes.find((i) => i.path === '/')?.children as ProRoutes[];
+  const WebChildren = WebRoutes.find((i) => i.path === '/')?.children as RouteObject[];
   const WebItems = WebChildren.map((i) => {
-    return {key: i.path as string, label: <Link to={i.path as string}>{i.name}</Link>};
+    return {
+      key: i.path as string,
+      label: <Link to={i.path as string}>{i.id}</Link>,
+    };
   });
   return (
     <Layout>
