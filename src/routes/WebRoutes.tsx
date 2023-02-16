@@ -8,10 +8,6 @@ const Introduction = lazy(() => import('@/pages/web/Introduction/Introduction'))
 const Topic = lazy(() => import('@/pages/web/Topic/Topic'));
 const Trend = lazy(() => import('@/pages/web/Trend/Trend'));
 
-export type ProRoutes = {
-  id: string;
-  children?: ProRoutes[];
-} & RouteObject;
 const WebRoutes: RouteObject[] = [
   {
     path: '/',
