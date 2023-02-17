@@ -1,15 +1,29 @@
 import React from 'react';
-import { Divider, Typography, Card } from 'antd';
+import {Typography, Card } from 'antd';
 import styled from 'styled-components';
-import { isAbsolute } from 'path';
-const { Title, Paragraph, Text, Link } = Typography;
+const {Title} = Typography;
+
+
+const IntroDiv = styled.div`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  /* or 188% */
+  text-align: justify;
+  color: #000000;
+  width: 1042px;
+  padding: 0;
+  margin: 0;
+`
 
 const App: React.FC = () => (
   <Card style={{
     paddingLeft: 80,
     paddingRight: 77,
     width: 1200,
-    height: 1382
+    height: 1382,
   }}>
 
     <Title style={{
@@ -28,15 +42,7 @@ const App: React.FC = () => (
 
     <br></br>
 
-    <div style={{
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 400,
-      textAlign: 'justify',
-      color: '#000000',
-      fontSize: 16,
-      width: 1042
-    }}>
+    <IntroDiv>
       <p>
         本项目依据科技创新2030—“新一代人工智能”重大项目2021年度申报指南中任务1.2 “连续学习理论和方法”提出申请。
       </p>
@@ -46,7 +52,7 @@ const App: React.FC = () => (
       <p>
         本项目属于新一任人工智能智能基础理论，聚焦连续学习这一重大科学问题，针对连续学习中“理论模型需构建、应用评测需扩展”的技术难点，以拟解决的关键科学问题为突破口，旨在发展形成面向连续学习的理论模型和评测体系，探索基于连续学习的实际应用场景，从而推动理论与实践的协同发展。本项目在连续学习范式层面和人机协同层面上具有重要理论科学价值、在实际应用层面上具有重要意义。通过本项目的研究，有望在连续学习理论方面取得突破，并在应用层面上形成一系列相关任务的开源基准数据集、软件框架及评测标准，打造连续学习应用示范新标杆
       </p>
-    </div>
+    </IntroDiv>
     <br></br>
     <img src="src\assets\images\introduction.png" width={1042} />
   </Card>
