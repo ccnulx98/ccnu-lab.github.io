@@ -22,6 +22,7 @@ const App: React.FC = () => (
   <Card style={{
     paddingLeft: 80,
     paddingRight: 77,
+    marginTop: -133,
     width: 1200,
     height: 1382,
   }}>
