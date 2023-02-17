@@ -11,7 +11,7 @@ const Trend = lazy(() => import('@/pages/web/Trend/Trend'));
 export type RoutePath = 'home' | 'introduction' | 'dynamics' | 'subjects' | 'achievements';
 
 export const pathDict: Record<RoutePath, string> = {
-  home: '项目主页',
+  home: '主页',
   introduction: '项目介绍',
   dynamics: '项目动态',
   subjects: '课程设置',
