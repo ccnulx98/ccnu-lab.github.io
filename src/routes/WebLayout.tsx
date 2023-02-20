@@ -21,10 +21,11 @@ export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
 const WebHeader = styled.div`
   box-shadow: 0px 1px 10px rgba(71, 90, 155, 0.02), 0px 4px 6px rgba(102, 120, 166, 0.04),
     0px 2px 6px -1px rgba(102, 120, 166, 0.05);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   background: #fcfcfc;
+  width: 100%;
 `;
 
 const HeaderContent = styled(Header)`
@@ -33,17 +34,12 @@ const HeaderContent = styled(Header)`
   align-items: center;
   background: #fcfcfc !important;
   padding-inline: 0 !important;
-  .ant-menu-horizontal > .ant-menu-item a {
-    font-size: 16px;
-  }
-  .ant-menu-horizontal > .ant-menu-item-selected a {
-    font-weight: 600;
-  }
-  .ant-menu {
-    display: flex;
-    justify-content: center;
-    background: #fcfcfc;
-  }
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
 `;
 
 const ContentContent = styled(Content)`
@@ -60,7 +56,7 @@ const SectionLayout = styled(Layout)`
   header,
   footer,
   main {
-    width: ${SiteContentWidth};
+    width: 100%;
     margin: 0 auto;
   }
 `;
