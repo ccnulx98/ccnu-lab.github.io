@@ -10,8 +10,6 @@ import WebRoutes, {pathDict, RoutePath} from './WebRoutes';
 const {Content, Footer, Header} = Layout;
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
 
-const SiteContentWidth = '1280px';
-
 export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
   height: 99vh;
   display: flex;
@@ -23,10 +21,8 @@ const WebHeader = styled.div`
     0px 2px 6px -1px rgba(102, 120, 166, 0.05);
   position: fixed;
   top: 0;
-  /* z-index: 100; */
   background: #fcfcfc;
   width: 100%;
-  /*  margin: 0 360px; */
 `;
 
 const HeaderContent = styled(Header)`
@@ -35,12 +31,12 @@ const HeaderContent = styled(Header)`
   align-items: center;
   background: #fcfcfc !important;
   padding-inline: 0 !important;
-  font-family: Inter;
   font-size: 18px;
   font-weight: 800;
   line-height: 22px;
   letter-spacing: 0em;
-  text-align: left;
+  margin: 0 360px;
+  /* text-align: left; */
 `;
 
 const ContentContent = styled(Content)`
@@ -78,11 +74,7 @@ const WebLayout: React.FC = () => {
       <SectionLayout style={{background: '#eee'}}>
         <WebHeader>
           <HeaderContent>
-            <img
-              src={logo}
-              style={{width: '243.38px', height: '52px', cursor: 'pointer'}}
-              onClick={() => navigate('/')}
-            />
+            <img src={logo} style={{height: '52px'}} onClick={() => navigate('/')} />
             <Menu
               theme={'light'}
               mode="horizontal"
