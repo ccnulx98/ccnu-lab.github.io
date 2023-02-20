@@ -23,9 +23,10 @@ const WebHeader = styled.div`
     0px 2px 6px -1px rgba(102, 120, 166, 0.05);
   position: fixed;
   top: 0;
-  z-index: 100;
+  /* z-index: 100; */
   background: #fcfcfc;
   width: 100%;
+  /*  margin: 0 360px; */
 `;
 
 const HeaderContent = styled(Header)`
