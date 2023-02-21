@@ -6,9 +6,8 @@ import {useNavigate} from 'react-router';
 import home_title from '@/assets/images/home_title.png';
 import principal_default from '@/assets/images/principal_default.png';
 import {ReactComponent as TrendIcon} from '@/assets/svg/trend_icon.svg';
-
 const {Title} = Typography;
-import {ListItem, TitleWrap, FlexWrap} from '../../../style/styles';
+import {ListItem, TitleWrap, FlexWrap} from '@/style/styles';
 
 import {HomeWrap, ImageWrap, PrincipalBox, ProjectWrap, ProjectContentWrap} from './styles';
 
