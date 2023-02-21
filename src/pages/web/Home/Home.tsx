@@ -113,8 +113,8 @@ export default function Home() {
               }}
             />
             <div>{item.title}</div>
-            <div style={{marginRight: '40px'}}>{dayjs(item.createTime).format('YYYY-MM-DD')}</div>
           </Space>
+          <div style={{marginRight: '40px'}}>{dayjs(item.createTime).format('YYYY-MM-DD')}</div>
         </TrendListItem>
       ))}
       <img

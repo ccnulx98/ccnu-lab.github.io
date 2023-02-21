@@ -14,6 +14,11 @@ const ImageWrap = styled.div`
   display: flex;
   align-items: center;
   background-size: cover;
+  opacity: 1;
+  .flash {
+    transition-duration: 500ms;
+    transition-property: margin-right;
+  }
 `;
 
 const TitleWrap = styled.div`
@@ -108,13 +113,16 @@ const TrendListItem = styled.div`
   justify-content: space-between;
   align-items: center;
   background: #f1f1f1;
-  border: 1px solid #d0d6de;
   border-radius: 8px;
   height: 82px;
   position: relative;
   &:hover {
     background: #f1f1f1;
     border: 1px solid #2e6cfd;
+  }
+  ::selection {
+    background: #ecf5ff;
+    color: #005a9f;
   }
   margin: 20px 15%;
   padding: 0px;
@@ -128,7 +136,6 @@ const EllipsisBox = styled.span`
   /* text-overflow: ellipsis; */
   word-break: break-all;
 `;
-
 export {
   HomeWrap,
   ImageWrap,
