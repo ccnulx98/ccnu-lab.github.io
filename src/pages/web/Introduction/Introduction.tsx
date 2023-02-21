@@ -17,33 +17,45 @@ const IntroDiv = styled.div`
   padding: 0;
   margin: 0;
 `
+const CardContext = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MyCard = styled(Card)`
+  padding-left: 80px;
+  padding-right: 77px;
+  margin-top: -80px;
+  width: 1200px;
+  height: 1382px;
+`
+
+const MyUnderLine = styled.div`
+  height: 1px;
+  background-color: #000000;
+  width: 150px;
+`
+const MyTitle = styled(Title)`
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 39px;
+  color: #000000;
+`
 
 
 const App: React.FC = () => (
   <div>
-    <img src="src\assets\images\common-head.png" width={1920}
-    style={{marginTop:0,marginLeft: -360}}/>
-    <Card style={{
-      paddingLeft: 80,
-      paddingRight: 77,
-      marginTop: -133,
-      width: 1200,
-      height: 1382,
-    }}>
+    <img src="src\assets\images\common-head.png" width={"100%"}/>
+    <CardContext>
+    <MyCard>
 
-      <Title style={{
-        fontSize: 32,
-        fontFamily: 'Inter',
-        fontStyle: 'normal',
-        fontWeight: 800
-      }}>
-        项目简介</Title>
+      <MyTitle>项目简介</MyTitle>
 
-      <div style={{
-        height: 1,
-        backgroundColor: '#000000',
-        width: 128
-      }}></div>
+      <MyUnderLine></MyUnderLine>
 
       <br></br>
 
@@ -60,7 +72,8 @@ const App: React.FC = () => (
       </IntroDiv>
       <br></br>
       <img src="src\assets\images\introduction.png" width={1042} />
-    </Card>
+    </MyCard>
+    </CardContext>
   </div>
 
 );
