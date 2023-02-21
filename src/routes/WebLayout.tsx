@@ -4,13 +4,13 @@ import React, {Suspense} from 'react';
 import {Outlet, Link, RouteObject, useLocation, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
+import bottom from '@/assets/images/bottom.png';
 import logo from '@/assets/images/logo.png';
 
 import WebRoutes, {pathDict, RoutePath} from './WebRoutes';
-const {Content, Footer, Header} = Layout;
-const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
 
-const SiteContentWidth = '1280px';
+const {Content, Header} = Layout;
+const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
 
 export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
   height: 99vh;
@@ -21,28 +21,32 @@ export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
 const WebHeader = styled.div`
   box-shadow: 0px 1px 10px rgba(71, 90, 155, 0.02), 0px 4px 6px rgba(102, 120, 166, 0.04),
     0px 2px 6px -1px rgba(102, 120, 166, 0.05);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: #fcfcfc;
+  background: #f5f5f5;
+  width: 100%;
+  padding: 20px 360px 14px;
+  z-index: 10;
 `;
 
 const HeaderContent = styled(Header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fcfcfc !important;
+  background: #f5f5f5 !important;
   padding-inline: 0 !important;
-  .ant-menu-horizontal > .ant-menu-item a {
-    font-size: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 22px;
+  letter-spacing: 0em;
+  .ant-menu-light {
+    background: #f5f5f5;
   }
-  .ant-menu-horizontal > .ant-menu-item-selected a {
-    font-weight: 600;
+  .ant-menu-light .ant-menu-item-selected a {
+    color: #005a9f;
   }
-  .ant-menu {
-    display: flex;
-    justify-content: center;
-    background: #fcfcfc;
+  .ant-menu-horizontal {
+    border-bottom: none;
   }
 `;
 
@@ -50,9 +54,11 @@ const ContentContent = styled(Content)`
   padding: 30px 0;
 `;
 
-const FooterContent = styled(Footer)`
-  text-align: center;
-  background: transparent !important;
+const FooterContent = styled.div`
+  background-image: url(${bottom});
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 108px;
 `;
 
 const SectionLayout = styled(Layout)`
@@ -60,7 +66,7 @@ const SectionLayout = styled(Layout)`
   header,
   footer,
   main {
-    width: ${SiteContentWidth};
+    width: 100%;
     margin: 0 auto;
   }
 `;
@@ -81,11 +87,7 @@ const WebLayout: React.FC = () => {
       <SectionLayout style={{background: '#eee'}}>
         <WebHeader>
           <HeaderContent>
-            <img
-              src={logo}
-              style={{width: '243.38px', height: '52px', cursor: 'pointer'}}
-              onClick={() => navigate('/')}
-            />
+            <img src={logo} style={{height: '52px'}} onClick={() => navigate('/')} />
             <Menu
               theme={'light'}
               mode="horizontal"
@@ -105,10 +107,7 @@ const WebLayout: React.FC = () => {
         </ContentContent>
       </SectionLayout>
       <SectionLayout style={{background: '#eee'}}>
-        <FooterContent>
-          项目基础框架以及每个页面跳转已经做好,具体需要在具体的页面去实现, logo,
-          目前随便放一个可随时替换
-        </FooterContent>
+        <FooterContent />
       </SectionLayout>
     </Layout>
   );
