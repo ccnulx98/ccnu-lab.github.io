@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 import home from '@/assets/images/home.png';
 import home_project_background from '@/assets/images/home_project_bg.png';
@@ -16,34 +16,7 @@ const ImageWrap = styled.div`
   background-size: cover;
 `;
 
-const TitleWrap = styled.div<{name?: string}>`
-  display: flex;
-  justify-content: center;
-  h1 {
-    margin: 0;
-  }
-  ${(props) =>
-    props.name == 'project'
-      ? css`
-          .ant-typography {
-            margin: 86px 0 73px 0;
-          }
-        `
-      : css`
-          .ant-typography {
-            margin: 127px 0 82px 0;
-          }
-        `}
-  .ant-typography {
-    font-style: normal;
-    font-weight: 800px;
-    font-size: 32px;
-    line-height: 39px;
-    /* margin: 127px 0 82px 0; */
-  }
-`;
-
-const NewsTitleWrap = styled.div`
+const TitleWrap = styled.div`
   display: flex;
   justify-content: center;
   h1 {
@@ -54,7 +27,7 @@ const NewsTitleWrap = styled.div`
     font-weight: 800px;
     font-size: 32px;
     line-height: 39px;
-    margin-bottom: 59px;
+    margin: 127px 0 82px 0;
   }
 `;
 
@@ -117,7 +90,6 @@ const HomeProjectWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 126px;
 `;
 
 const HomeProjectContentWrap = styled.div`
@@ -133,19 +105,20 @@ const HomeProjectContentWrap = styled.div`
 
 const TrendListItem = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   background: #f1f1f1;
   border: 1px solid #d0d6de;
   border-radius: 8px;
   height: 82px;
-  width: 1120px;
+  /* width: 1120px; */
   position: relative;
   &:hover {
     background: #f1f1f1;
     border: 1px solid #2e6cfd;
   }
-  margin: 20px 400px;
+  margin: 20px 15%;
+  padding: 0;
 `;
 
 const EllipsisBox = styled.span`
@@ -153,7 +126,7 @@ const EllipsisBox = styled.span`
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   word-break: break-all;
 `;
 
@@ -161,7 +134,6 @@ export {
   HomeWrap,
   ImageWrap,
   TitleWrap,
-  NewsTitleWrap,
   FlexWrap,
   PrincipalBox,
   HomeProjectWrap,
