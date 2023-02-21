@@ -4,7 +4,7 @@ import home from '@/assets/images/home.png';
 import home_project_background from '@/assets/images/home_project_bg.png';
 
 const HomeWrap = styled.div`
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 `;
 
 const ImageWrap = styled.div`
@@ -19,28 +19,6 @@ const ImageWrap = styled.div`
     transition-duration: 500ms;
     transition-property: margin-right;
   }
-`;
-
-const TitleWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  h1 {
-    margin: 0;
-  }
-  .ant-typography {
-    font-style: normal;
-    font-weight: 800px;
-    font-size: 32px;
-    line-height: 39px;
-    margin: 127px 0 82px 0;
-  }
-`;
-
-const FlexWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 `;
 
 const PrincipalBox = styled.div`
@@ -87,7 +65,7 @@ const PrincipalBox = styled.div`
   }
 `;
 
-const HomeProjectWrap = styled.div`
+const ProjectWrap = styled.div`
   height: 482px;
   background-image: url(${home_project_background});
   background-size: cover;
@@ -97,7 +75,7 @@ const HomeProjectWrap = styled.div`
   align-items: center;
 `;
 
-const HomeProjectContentWrap = styled.div`
+const ProjectContentWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,43 +86,4 @@ const HomeProjectContentWrap = styled.div`
   margin: 0 400px 116px;
 `;
 
-const TrendListItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f1f1f1;
-  border-radius: 8px;
-  height: 82px;
-  position: relative;
-  &:hover {
-    background: #ecf5ff;
-    color: #005a9f;
-    svg {
-      path {
-        fill: #005a9f;
-      }
-    }
-  }
-  margin: 20px 15%;
-  padding: 0 40px;
-`;
-
-const EllipsisBox = styled.span`
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  /* text-overflow: ellipsis; */
-  word-break: break-all;
-`;
-export {
-  HomeWrap,
-  ImageWrap,
-  TitleWrap,
-  FlexWrap,
-  PrincipalBox,
-  HomeProjectWrap,
-  HomeProjectContentWrap,
-  TrendListItem,
-  EllipsisBox,
-};
+export {HomeWrap, ImageWrap, PrincipalBox, ProjectWrap, ProjectContentWrap};

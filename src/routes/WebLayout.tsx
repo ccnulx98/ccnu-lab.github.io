@@ -4,10 +4,12 @@ import React, {Suspense} from 'react';
 import {Outlet, Link, RouteObject, useLocation, useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 
+import bottom from '@/assets/images/bottom.png';
 import logo from '@/assets/images/logo.png';
 
 import WebRoutes, {pathDict, RoutePath} from './WebRoutes';
-const {Content, Footer, Header} = Layout;
+
+const {Content, Header} = Layout;
 const antIcon = <LoadingOutlined style={{fontSize: 24}} spin />;
 
 export const LoadingWrap: typeof Spin = styled(Spin)<SpinProps>`
@@ -52,9 +54,11 @@ const ContentContent = styled(Content)`
   padding: 30px 0;
 `;
 
-const FooterContent = styled(Footer)`
-  text-align: center;
-  background: transparent !important;
+const FooterContent = styled.div`
+  background-image: url(${bottom});
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 108px;
 `;
 
 const SectionLayout = styled(Layout)`
@@ -103,10 +107,7 @@ const WebLayout: React.FC = () => {
         </ContentContent>
       </SectionLayout>
       <SectionLayout style={{background: '#eee'}}>
-        <FooterContent>
-          项目基础框架以及每个页面跳转已经做好,具体需要在具体的页面去实现, logo,
-          目前随便放一个可随时替换
-        </FooterContent>
+        <FooterContent />
       </SectionLayout>
     </Layout>
   );
