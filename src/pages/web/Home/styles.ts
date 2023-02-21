@@ -42,6 +42,7 @@ const PrincipalBox = styled.div`
   img {
     width: 158px;
     height: 180px;
+    padding-bottom: 20px;
   }
   .principalName {
     justify-content: center;
@@ -49,6 +50,7 @@ const PrincipalBox = styled.div`
     font-weight: 800;
     line-height: 24px;
     box-sizing: border-box;
+    padding-bottom: 8px;
   }
   .introduction {
     justify-content: center;

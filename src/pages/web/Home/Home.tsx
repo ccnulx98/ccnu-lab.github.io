@@ -72,7 +72,7 @@ export default function Home() {
       <FlexWrap>
         {principalData.map((item) => (
           <PrincipalBox key={item.image}>
-            <img src={item.image} alt="" style={{borderRadius: '50%'}} />
+            <img src={item.image} alt="" />
             <div className="principalName">{item.name}</div>
             <div className="introduction">项目负责人</div>
           </PrincipalBox>
