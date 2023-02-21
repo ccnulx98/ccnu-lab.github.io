@@ -43,6 +43,9 @@ const HeaderContent = styled(Header)`
   .ant-menu-light .ant-menu-item-selected a {
     color: #005a9f;
   }
+  .ant-menu-horizontal {
+    border-bottom: none;
+  }
 `;
 
 const ContentContent = styled(Content)`

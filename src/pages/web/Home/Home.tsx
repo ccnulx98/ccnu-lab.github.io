@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router';
 import home_project_bottom from '@/assets/images/home_bottom.png';
 import home_title from '@/assets/images/home_title.png';
 import principal_default from '@/assets/images/principal_default.png';
-import trend_icon from '@/assets/images/trend_icon.png';
+import {ReactComponent as TrendIcon} from '@/assets/svg/trend_icon.svg';
 
 const {Title} = Typography;
 import {
@@ -104,17 +104,10 @@ export default function Home() {
       {trendData.map((item) => (
         <TrendListItem key={item.title} onClick={() => navigate('/trend')}>
           <Space size={'middle'}>
-            <img
-              src={trend_icon}
-              style={{
-                width: '24px',
-                marginLeft: '40px',
-                marginRight: '12px',
-              }}
-            />
+            <TrendIcon />
             <div>{item.title}</div>
           </Space>
-          <div style={{marginRight: '40px'}}>{dayjs(item.createTime).format('YYYY-MM-DD')}</div>
+          <div>{dayjs(item.createTime).format('YYYY-MM-DD')}</div>
         </TrendListItem>
       ))}
       <img

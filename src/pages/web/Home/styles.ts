@@ -117,15 +117,16 @@ const TrendListItem = styled.div`
   height: 82px;
   position: relative;
   &:hover {
-    background: #f1f1f1;
-    border: 1px solid #2e6cfd;
-  }
-  ::selection {
     background: #ecf5ff;
     color: #005a9f;
+    svg {
+      path {
+        fill: #005a9f;
+      }
+    }
   }
   margin: 20px 15%;
-  padding: 0px;
+  padding: 0 40px;
 `;
 
 const EllipsisBox = styled.span`
