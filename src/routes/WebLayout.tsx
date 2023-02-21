@@ -21,22 +21,28 @@ const WebHeader = styled.div`
     0px 2px 6px -1px rgba(102, 120, 166, 0.05);
   position: fixed;
   top: 0;
-  background: #fcfcfc;
+  background: #f5f5f5;
   width: 100%;
+  padding: 20px 360px 14px;
+  z-index: 10;
 `;
 
 const HeaderContent = styled(Header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fcfcfc !important;
+  background: #f5f5f5 !important;
   padding-inline: 0 !important;
   font-size: 18px;
   font-weight: 800;
   line-height: 22px;
   letter-spacing: 0em;
-  margin: 0 360px;
-  /* text-align: left; */
+  .ant-menu-light {
+    background: #f5f5f5;
+  }
+  .ant-menu-light .ant-menu-item-selected a {
+    color: #005a9f;
+  }
 `;
 
 const ContentContent = styled(Content)`

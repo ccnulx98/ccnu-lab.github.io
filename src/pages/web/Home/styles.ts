@@ -105,20 +105,19 @@ const HomeProjectContentWrap = styled.div`
 
 const TrendListItem = styled.div`
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   background: #f1f1f1;
   border: 1px solid #d0d6de;
   border-radius: 8px;
   height: 82px;
-  /* width: 1120px; */
   position: relative;
   &:hover {
     background: #f1f1f1;
     border: 1px solid #2e6cfd;
   }
   margin: 20px 15%;
-  padding: 0;
+  padding: 0px;
 `;
 
 const EllipsisBox = styled.span`

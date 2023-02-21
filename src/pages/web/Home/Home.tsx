@@ -8,7 +8,7 @@ import home_title from '@/assets/images/home_title.png';
 import principal_default from '@/assets/images/principal_default.png';
 import trend_icon from '@/assets/images/trend_icon.png';
 
-const {Title, Text} = Typography;
+const {Title} = Typography;
 import {
   HomeWrap,
   ImageWrap,
@@ -113,7 +113,7 @@ export default function Home() {
               }}
             />
             <div>{item.title}</div>
-            <div>{dayjs(item.createTime).format('YYYY-MM-DD')}</div>
+            <div style={{marginRight: '40px'}}>{dayjs(item.createTime).format('YYYY-MM-DD')}</div>
           </Space>
         </TrendListItem>
       ))}
